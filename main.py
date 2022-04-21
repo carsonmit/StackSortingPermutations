@@ -2,7 +2,7 @@ from AscentsTables import ascentSSTable,startsWithSSTable
 
 '''These tables provide two ways of partitioning permutations of S_n based on their behavior, one (likely more strong)
 based on the number of ascents in a perm and the other on the number the perm starts with. The two functions are labeled 
-accordingly and their only input is n, the desired size of S_n. Below the definition, you'' find functions whose
+accordingly and their only input is n, the desired size of S_n. Below the definition, you'll find functions whose
  input you can swap out for whatever you like.'''
 
 
