@@ -83,3 +83,35 @@ def startsWithSSTable(n):
     table = table.transpose()
     return table.rename(columns ={i:labels[i] for i in range(n)})
 
+
+def endsWith(p):
+    return p[-1]
+
+def endsWithLex(n):
+    perms = allperms(n)
+    list = []
+    for perm in perms:
+        list.append(perm[-1])
+    return list
+
+def endsWithSSTable(n):
+    ew = endsWithLex(n)
+    tvalues = tvals(n)
+    columns = []
+    for i in range(1,n+1):
+        indices = tIndices(ew, i)
+        newtvalues = []
+        for index in indices:
+            newtvalues.append(tvalues[index])
+        column = []
+        for j in range(n):
+            count = 0
+            for val in newtvalues:
+                if val == j:
+                    count += 1
+            column.append(count)
+        columns.append(column)
+    labels = [i for i in range(1,n+1)]
+    table = pd.DataFrame(columns)
+    table = table.transpose()
+    return table.rename(columns ={i:labels[i] for i in range(n)})
