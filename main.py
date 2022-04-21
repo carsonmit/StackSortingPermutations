@@ -1,4 +1,4 @@
-from AscentsTables import ascentSSTable,startsWithSSTable
+from AscentsTables import ascentSSTable, startsWithSSTable, endsWithSSTable
 
 '''These tables provide two ways of partitioning permutations of S_n based on their behavior, one (likely more strong)
 based on the number of ascents in a perm and the other on the number the perm starts with. The two functions are labeled 
@@ -24,10 +24,21 @@ def swTable(n):
     return None
 
 
+def ewTable(n):
+    print('''The columns represent the number a given permutation in S_n ends with. There are n!/n = (n-1)! of these
+    permutations in each column. Furthermore, each of these (n-1)! are partitioned into n rows depending on if they are 
+    0, 1,..., or n-1 stack sortable.''')
+    print('Ending Number:')
+    print(endsWithSSTable(n))
+    return None
+
+
 '''Modify this code here! All you need to do is change the input n to the size you want.'''
 '''The pattern among the ascents will likely be stronger than among the starting numbers, although its quite strange
 how well-behaved their tables are relative to one another. We suspect there may be relationships between binomials or
 potentially even fibonacci/ modular catalan numbers in some/most of the columns. There is also some nice symmetry
 as you will see.'''
+
 ascentTable(4)
 swTable(4)
+ewTable(4)
