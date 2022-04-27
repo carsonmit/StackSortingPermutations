@@ -12,7 +12,7 @@ def stacksort(p):
         s.append(stack.pop())
     return s
 
-def stacksortSteps(p):
+def stacksortFull(p):
     e = identityp(len(p))
     steps = [p]
     p0 = p
@@ -22,4 +22,4 @@ def stacksortSteps(p):
     return steps
 
 p = [4,2,6,1,5,3,7]
-print(stacksortSteps(p))
+print(stacksortFull(p))
