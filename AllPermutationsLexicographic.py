@@ -1,4 +1,4 @@
-from tValueCalculator import identityp
+from IdentityPerm import identityp
 from NumAscents import numAscents
 
 

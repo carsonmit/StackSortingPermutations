@@ -1,3 +1,5 @@
+from IdentityPerm import identityp
+
 def stacksort(p):
     stack = [p[0]]  # Immediately initalizes a stack and pushes first element of p
     n = len(p)
@@ -9,3 +11,15 @@ def stacksort(p):
     while stack:  # Clear the rest of the stack once last element is pushed
         s.append(stack.pop())
     return s
+
+def stacksortFull(p):
+    e = identityp(len(p))
+    steps = [p]
+    p0 = p
+    while p0 != e:
+        p0 = stacksort(p0)
+        steps.append(p0)
+    return steps
+
+p = [4,2,6,1,5,3,7]
+print(stacksortFull(p))
