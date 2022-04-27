@@ -20,6 +20,3 @@ def stacksortFull(p):
         p0 = stacksort(p0)
         steps.append(p0)
     return steps
-
-p = [4,2,6,1,5,3,7]
-print(stacksortFull(p))
