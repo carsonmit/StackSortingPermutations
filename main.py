@@ -39,6 +39,14 @@ how well-behaved their tables are relative to one another. We suspect there may 
 potentially even fibonacci/ modular catalan numbers in some/most of the columns. There is also some nice symmetry
 as you will see.'''
 
-ascentTable(4)
+#Uncomment these for tables described above
+'''ascentTable(4)
 swTable(4)
-ewTable(4)
+ewTable(4) '''
+
+# Lists the output of the SSA for all perms 1-n
+from AllPermutationsLexicographic import allperms
+from StackSort import stacksortFull
+perms = allperms(5)
+for perm in perms:
+    print(stacksortFull(perm))
