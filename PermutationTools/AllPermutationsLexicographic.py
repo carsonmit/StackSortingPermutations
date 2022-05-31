@@ -1,11 +1,17 @@
-from IdentityPerm import identityp
-from NumAscents import numAscents
+from PermutationTools.IdentityPermutation import identityp
 
 
-def allperms(n):  # Enumerates all perms of 1-n in lexicographic order
+def lastPerm(n):  # Outputs the permutation n, n-1, ..., 2, 1
+    p = []
+    for i in range(n):
+        p.insert(0, i+1)
+    return p
+
+
+def allPerms(n):  # Enumerates all perms of 1-n in lexicographic order
     p = identityp(n)  # First is the identity
-    list = [identityp(n)]  # Initialize output
-    while numAscents(p) != 0:  # If numAscents = 0, then p = n(n-1)...321 and we are at the last one
+    perms = [identityp(n)]  # Initialize output
+    while p != lastPerm(n):  # If numAscents = 0, then p = n(n-1)...321 and we are at the last one
         index1 = 0  # Step 1: find the largest i (index1) s.t. p[i]<p[i+1] (the last ascent)
         for i in range(n - 1):  # Every time an ascent is found, index1 is updated to the new largest such i
             if p[i] < p[i + 1]:
@@ -26,5 +32,5 @@ def allperms(n):  # Enumerates all perms of 1-n in lexicographic order
             nextp[i] = array[i - index1 - 1]
         temp = []  # Stuff to avoid stupid issues with lists
         temp += nextp
-        list.append(temp)
-    return list
+        perms.append(temp)
+    return perms
