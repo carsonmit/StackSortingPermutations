@@ -1,4 +1,5 @@
 from FundamentalParallelepipedEnumerator import *
+from Ln1Permutations import *
 
 
 # Attempt to make function bVectors more efficient for the simplexPoints function
@@ -43,3 +44,27 @@ def simplexPoints(vertices):
                 sol = augMRREF.col(-1)  # Also adds the values of lambda that produce this LC in the sols vector
                 sols.append(sol.T)
     return lps, sols
+
+
+def LPsSP(vertices):  # Nicer way to visually output results of simplexPoints
+    lps, sols = simplexPoints(vertices)
+    if len(lps) != len(sols):
+        return "Length error"
+    num_lambdas = len(sols[0])
+    print("The lattice points in the given simplex are:")
+    for i in range(len(lps)):
+        output = ""
+        output += str(i+1) + ". " + str(lps[i]) + " from:  "
+        for j in range(num_lambdas):
+            output += "\u03BB_" + str(j+1) + " = " + str(sols[i][j]) + ",  "
+        print(output)
+    return None
+
+
+n = 4
+print(lPrimeFamily(n))
+LPsSP(lPrimeFamily(n))
+F = lPrimeFamily(n)
+print("")
+print(F)
+LPsFP(F)
