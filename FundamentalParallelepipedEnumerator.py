@@ -1,6 +1,5 @@
 import sympy as sp
 import itertools as it
-from Ln1Permutations import *
 
 
 def appendOneAll(vectors):  # Given a set of vectors, appends 1 to the end of each of them (for lifting polytopes)
@@ -69,7 +68,16 @@ def latticePointsFP(vertices):  # Finds lattice points in the fund. parallelepip
     return lps, sols
 
 
-n = 4
-F = lPrimeFamily(n)
-print(F)
-print(latticePointsFP(F))
+def LPsFP(vertices):  # Nicer way to visually output results of latticePointsFP
+    lps, sols = latticePointsFP(vertices)
+    if len(lps) != len(sols):
+        return "Length error"
+    num_lambdas = len(sols[0]) - 1
+    print("The lattice points in the fundamental parallelepiped of the given simplex are:")
+    for i in range(len(lps)):
+        output = ""
+        output += str(i+1) + ". " + str(lps[i]) + " from:  "
+        for j in range(num_lambdas):
+            output += "\u03BB_" + str(j+1) + " = " + str(sols[i][j]) + ",  "
+        print(output)
+    return None

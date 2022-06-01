@@ -5,9 +5,9 @@
 <ul>
     <li><b> Dilate: </b> One function dilateP that dilates vertices of a polytope by a given factor</li>
     <li><b> FundamentalParallelepipedEnumerator: </b> Tools to enumerate all lattice points in the 
-        fundamental parallelepiped of a given polytope (only Ln1 families for now)</li>
+        fundamental parallelepiped of a given polytope (only works with simplices for now)</li>
     <li><b> Ln1Permutations: </b> Various functions to generate Ln1 permutations and their families</li>
-    <li><b> SimplexPointEnumerator: </b> Tools to enumerate all lattice points in the a given simplex</li>
+    <li><b> SimplexPointEnumerator: </b> Tools to enumerate all lattice points in a given simplex</li>
     <li><b> StackSort: </b> The stack-sorting algorithm plus extra functions to quickly stack sort large families of 
         permutations</li>
     <li><b> tValueCalculator: </b> Calculate t-values for given permutations, the number of times it takes the stack
